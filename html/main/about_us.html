@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>About Us</title>
+  <link rel="shortcut icon" type="image/png" href="../../images/logo/logo.png">
+  <meta name="description" content="History of Pearson CakeShop" >
+  <meta name="keywords" content="Pearson CakeShop,about_us,about">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
+  <script src="../../js/banner.js"></script>  
+</head>
+
+<body>
+  <div id="main">
+      <div id="menubar">
+        <ul id="menu">
+		<img src = "../../images/logo/logo2.png">
+          <li><a href="index.html">Home</a></li>
+		  <li class="selected"><a href="about_us.html">About Us</a></li>
+		  <li><a href="cake.html">Cakes</a></li>
+          <li><a href="cv.html">Meet Our Staff</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+		  <li><a href="weeklypoll.html">Weekly Poll</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+	  </div>
+	  <ul id = "log">
+            <?php
+            session_start();
+			if(!isset($_SESSION['user'])){
+            	$menu =	'<li><a href="http://localhost/pearson/php/register.php">Register</a></li>'.
+					'<li><a href="http://localhost/pearson/php/login.php">Log in</a></li>'.
+					'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}else{
+					$menu =	'<li><a href="http://localhost/pearson/php/logout.php">Logout</a></li>'.
+						'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}
+			echo $menu;
+		?>
+		</ul>
+		</div>
+	  </div>
+	<div id="header">
+	<img src = "../../images/banner/banner1.png" id="banner">
+	</div>
+	 </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+	<div class="sidebar">
+	<div id = "logo">
+		<img src = "../../images/logo/logo1.png">
+		</div>
+	</div>
+      <div id="content">
+        <h1>Our Story</h1>
+        <p>Pearson Cake Shop is the creation of Kokulan, Sangeethanan, Gopinath, Sanoj and Sivanjah. Pearson Cake shop is started in the year of 2015 and now entering into the 2nd year of anniversary. With a dedicated and friendly staff of over 65 men and women, we strive to provide the best quality food and service always. Comprising of a skilled and artistic staff, we accept orders for wedding structures, design cakes, shape cakes and even customized & personalized sponge creations. Our dynamic catering team is equipped and ready to server any occasion. With the flexibility to provide you with a customized menu, we ensure our service blends smoothly with any event.
+</p>
+        </div>
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+       <p><a href="index.html">Home</a>| <a href="about_us.html">About Us</a>| <a href="cake.html">Cakes</a>| <a href="cv.html">Meet Our Staff</a>| <a href="quiz.html">Quiz</a>|<a href="weeklypoll.html">Weekly Poll</a>| <a href="contact.html">Contact Us</a>| <a href="sitemap.html">Site Map</a></p>
+      <p>Copyright &copy Pearson Cake Shop.&nbsp57, Ramakrishna Road, Colombo-06, Sri Lanka.Tel:(+)94 112 580 714,(+)94 112 361 473</p>
+    </div>
+  </div>
+</body>
+</html>

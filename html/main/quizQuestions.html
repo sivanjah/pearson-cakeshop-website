@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Quiz</title>
+  <link rel="shortcut icon" type="image/png" href="../../images/logo/logo.png">
+  <meta name="description" content="Quiz for wedsite" >
+  <meta name="keywords" content="question,quiz">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+  <script src="../../js/banner.js"></script>  
+</head>
+
+<body>
+  <div id="main">
+      <div id="menubar">
+        <ul id="menu">
+		<img src = "../../images/logo/logo2.png">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about_us.html">About Us</a></li>
+		  <li><a href="cake.html">Cakes</a></li>
+          <li><a href="cv.html">Meet Our Staff</a></li>
+          <li class="selected"><a href="quiz.html">Quiz</a></li>
+		  <li><a href="weeklypoll.html">Weekly Poll</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+		</div>
+    </div>
+			<ul id = "log">
+			<?php
+            session_start();
+			if(!isset($_SESSION['user'])){
+            	$menu =	'<li><a href="http://localhost/pearson/php/register.php">Register</a></li>'.
+					'<li><a href="http://localhost/pearson/php/login.php">Log in</a></li>'.
+					'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}else{
+					$menu =	'<li><a href="http://localhost/pearson/php/logout.php">Logout</a></li>'.
+						'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}
+			echo $menu;
+		?>
+		</ul>
+      </div>
+    </div>
+	
+	<div id="header">
+	<img src = "../../images/banner/banner1.png" id="banner">
+	</div>
+	</div>
+    
+	<div id="content_header"></div>
+    <div id="site_content">
+      <div id="content">
+        <h1>Quiz</h1>
+
+	<div>
+	<h2 id="test_status">Game Quiz</h2>
+	<h3 id="timeleft">Time left</h3>
+	</div>
+	<div id="test"> </div>
+
+	<script>
+	
+	var myquiz;
+	function beginTimer() {
+	myquiz = setInterval(function(){myTimer()},1500);
+	restrict = toplimit;
+		}
+
+	function myTimer() {
+	if (restrict > 0) {
+	nmin=Math.floor(restrict/60);
+	nsec=restrict%60;
+		if (nmin!=0) { ntime=nmin+" minutes and "+nsec+" seconds left"; }
+		else { ntime=nsec+" seconds left"; }
+		ax('timeleft').innerHTML = ntime;
+	} else {
+	ax('timeleft').innerHTML = restrict+' - You are Out of Time thus no score will be given, please continue finishing the quiz';
+	cleartime(myquiz);
+	}
+	restrict--;
+}
+
+	var pos = 0, posn, choice, correct = 0, rscore = 0;
+	var toplimit = 15, restrict = toplimit; // each questions will be 15 seconds //
+
+	var questions = [
+	[ "High-ratio cake flour is flour with a low percentage of?", "Starch", "Gluten", "Moisture", "B" ],
+	[ "Which of the following milks can form the basis of a caramel sauce?", "Buttermilk", "Powdered milk", "Condensed milk", "C" ],
+	[ "What is the ratio of sugar to water for a medium stock syrup?", "50g sugar per 1L of boiling water", "500g sugar per 1L of boiling water", "750g sugar per 1L of boiling water", "B" ],
+	[ "The process by which yeast changes sugar into carbon dioxide is called?", "Kneading", "Kneading", "Fermentation", "C" ],
+	[ "Cream chantilly is whipped cream with what other ingredient?", "Vanilla essence", "Fruit juice", "Liqueur", "C" ],
+	[ "What nut is used to make frangipane and praline?", "Hazelnuts", "Walnuts", "Almonds", "C" ],
+	[ "Which of the following aeration methods can be used to produce lightness in baked goods?", "Chemical", "Yeast leaven", "All of the above", "C" ],
+	[ "The process of beating fat and sugar together to incorporate air is called?", "Folding", "Blending", "Creaming", "C" ],
+	[ "What percentage of weight does bread lose during baking?", "0–3 per cent", "10–13 per cent",  "16–23 per cent","B" ],
+	[ " Puff pastry is not used for the following?", "Vol-au-vents", "Profiteroles", "Bouchées", "B" ]
+	];
+	
+	var questionOrder = [];
+	function setQuestionOrder() {
+	questionOrder.length = 0;
+	for (var i=0; i<questions.length; i++) { questionOrder.push(i); }
+	questionOrder.sort(randOrd); // alert(questionOrder); // shuffle display order
+	pos = 0; posn = questionOrder[pos];
+	}
+
+	function ax(IDS) { return document.getElementById(IDS); }
+	function randOrd() { return (Math.round(Math.random())-0.5); }
+	function renderResults(){
+	var test = ax("test");
+	test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
+	ax("test_status").innerHTML = "Test Completed";
+	ax('timeleft').innerHTML = '';
+	test.innerHTML += '<button onclick="location.reload()">Re-test</a> ';
+	setQuestionOrder();
+	correct = 0;
+	cleartime(myquiz);
+	return false;
+	}
+
+	function renderQuestion() {
+		var test = ax("test");
+		ax("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+		if (rscore != 0) { ax("test_status").innerHTML += '<br>Currently: '+(correct/rscore*100).toFixed(0)+'% correct'; }
+		var question = questions[posn][0];
+		var chA = questions[posn][1];
+		var chB = questions[posn][2];
+		var chC = questions[posn][3];
+		test.innerHTML = "<h3>"+question+"</h3>";
+		test.innerHTML += "<label><input type='radio' name='choices' value='A'> "+chA+"</label><br>";
+		test.innerHTML += "<label><input type='radio' name='choices' value='B'> "+chB+"</label><br>";
+		test.innerHTML += "<label><input type='radio' name='choices' value='C'> "+chC+"</label><br><br>";
+		test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+		restrict = toplimit;
+		clearInterval(myquiz);
+		beginTimer();
+	}
+
+	function checkAnswer(){
+		var choices = document.getElementsByName("choices");
+		for (var i=0; i<choices.length; i++) {
+		if (choices[i].checked) { choice = choices[i].value; }
+	}
+	rscore++;
+	if (choice == questions[posn][4] && restrict > 0) { correct++; }
+	pos++; posn = questionOrder[pos];
+	if (pos < questions.length) { renderQuestion(); } else { renderResults(); }
+	}
+
+	window.onload = function() {
+	setQuestionOrder();
+	renderQuestion();
+	}
+	</script>
+
+	<style>
+		div#test{ border-style: solid; padding:30px 50px 50px 50px; background-color: lightblue;}
+	</style>
+    <p></p>
+    </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+     <p><a href="index.html">Home</a>| <a href="about_us.html">About Us</a>| <a href="cake.html">Cakes</a>| <a href="cv.html">Meet Our Directors| <a href="quiz.html">Quiz</a>| <a href="contact.html">Contact Us</a>|<a href="sitemap.html">Site Map</a></p>
+       <p>Copyright &copy Pearson Cake Shop.&nbsp57, Ramakrishna Road, Colombo-06, Sri Lanka.Tel:(+)94 112 580 714,(+)94 112 361 473</p>
+    </div>
+  </div>
+</body>
+</html>

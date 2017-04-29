@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Quiz</title>
+  <link rel="shortcut icon" type="image/png" href="../../images/logo/logo.png">
+  <meta name="description" content="Quiz for wedsite" >
+  <meta name="keywords" content="question,quiz">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+  <script src="../../js/banner.js"></script>  
+</head>
+
+<body>
+  <div id="main">
+      <div id="menubar">
+        <ul id="menu">
+		<img src = "../../images/logo/logo2.png">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about_us.html">About Us</a></li>
+		  <li><a href="cake.html">Cakes</a></li>
+          <li><a href="cv.html">Meet Our Staff</a></li>
+          <li class="selected"><a href="quiz.html">Quiz</a></li>
+		  <li><a href="weeklypoll.html">Weekly Poll</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+		</div>
+    </div>
+			<ul id = "log">
+			<?php
+            session_start();
+			if(!isset($_SESSION['user'])){
+            	$menu =	'<li><a href="http://localhost/pearson/php/register.php">Register</a></li>'.
+					'<li><a href="http://localhost/pearson/php/login.php">Log in</a></li>'.
+					'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}else{
+					$menu =	'<li><a href="http://localhost/pearson/php/logout.php">Logout</a></li>'.
+						'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}
+			echo $menu;
+		?>
+		</ul>
+      </div>
+    </div>
+	<div id="header">
+	<img src = "../../images/banner/banner1.png" id="banner">
+	</div>
+	 </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="content">
+        <h1>Quiz</h1>
+ 	
+	<p><ul><br><li>Click "Start Quiz Game" Button To Start The Game.</li><br>
+    <li>You Have 10 Questions To Answer And You Are Getting Only 05 Minutes To Answer All The Questions.</li><br> 
+    <li>Each Question Has 04 Possible Answers and You Have To Give An Exactly One Answer.</li><br> 
+    <li>You will get 2 Marks For Each Correct Answer, And -1 For Each Wrong Asnwer.</li><br>
+    <li>Finally You Will Get Total Marks Out Of 20.</li><b>
+		      
+		    	<div class="button_small">
+		        <a href="quizQuestions.html">Start Quiz Game</a>
+		      </div>
+			  <p></p>
+			  </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+     <p><a href="index.html">Home</a>| <a href="about_us.html">About Us</a>| <a href="cake.html">Cakes</a>| <a href="cv.html">Meet Our Directors| <a href="quiz.html">Quiz</a>|<a href="weeklypoll.html">Weekly Poll</a>| <a href="contact.html">Contact Us</a>|<a href="sitemap.html">Site Map</a></p>
+       <p>Copyright &copy Pearson Cake Shop.&nbsp57, Ramakrishna Road, Colombo-06, Sri Lanka.Tel:(+)94 112 580 714,(+)94 112 361 473</p>
+    </div>
+  </div>
+</body>
+</html>

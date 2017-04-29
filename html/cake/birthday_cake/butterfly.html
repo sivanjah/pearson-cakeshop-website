@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Butterfly Birthday Cake</title>
+  <link rel="shortcut icon" type="image/png" href="../../../images/logo/logo.png">
+  <meta name="description" content="Butterfly Birthday Cake" >
+  <meta name="keywords" content="Butterfly Birthday Cake,Butterfly Birthday,Butterfly">
+  <link rel="stylesheet" type="text/css" href="../../../css/style.css" />
+  <script src="../../../js/banner.js"></script>  
+</head>
+
+<body>
+  <div id="main">
+      <div id="menubar">
+        <ul id="menu">
+		<img src = "../../../images/logo/logo2.png">
+          <li><a href="../../main/index.html">Home</a></li>
+          <li><a href="../../main/about_us.html">About Us</a></li>
+		  <li><a href="../../main/cake.html">Cakes</a></li>
+          <li><a href="../../main/cv.html">Meet Our Staff</a></li>
+          <li><a href="../../main/quiz.html">Quiz</a></li>
+		  <li><a href="../../main/weeklypoll.html">Weekly Poll</a></li>
+          <li><a href="../../main/contact.html">Contact Us</a></li>
+		</ul>
+         </div>
+    </div>
+	<ul id = "log">
+			<?php
+            session_start();
+			if(!isset($_SESSION['user'])){
+            	$menu =	'<li><a href="http://localhost/pearson/php/register.php">Register</a></li>'.
+					'<li><a href="http://localhost/pearson/php/login.php">Log in</a></li>'.
+					'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}else{
+					$menu =	'<li><a href="http://localhost/pearson/php/logout.php">Logout</a></li>'.
+						'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}
+			echo $menu;
+		?>
+		</ul>
+      </div>
+    </div>
+	<div id="header">
+	<img src = "../../../images/banner/banner1.png" id="banner">
+	</div>
+	 </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="content">
+		<h1>Butterfly Birthday Cake</h1>
+				<div id = "bitem"> 
+				<form action = '../../../php/addToCart.php' method=post>
+				
+				<input type="hidden" name="pname" value="Butterfly Birthday Cake" />
+				<table>
+					<tr>
+						<td> <img src="../../../images/cakes/bday2.jpg">
+						</td>
+						<td> 
+							<p> This cake is covered in soft pink icing and decorated with a range of butterflies
+							and blossoms in yellow, blue and purple. The cake is iced with a Happy Birthday message 
+							piped in pink. Edged with a striped lilac ribbon and presented on a silver and white Fiona
+							Cairns gift box.
+							</p>
+						</td>
+					</tr>
+						
+					<tr id = "price">
+						
+						<td>
+								1KG
+								<input type="hidden" name="kg" value="1KG" />
+						</td>
+						
+						<td>
+							Rs.2500.00 
+							<input type="hidden" name = "price" value="2500" />
+						</td>
+						
+					</tr>
+						
+					<tr id = "price">
+					<td>
+						Qty<input class="textbox" type="text" name="qty"><br>
+					</td>
+					</tr>
+						
+					<tr>
+					<td>	
+						<input type="submit" value="Add to Cart">
+					</td>
+					</tr>
+						
+					
+				</table>
+				</form>
+			</div>
+		</div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p><a href="../../main/index.html">Home</a>| <a href="../../main/about_us.html">About Us</a>| <a href="../../main/cake.html">Cakes</a>| <a href="../../main/cv.html">Meet Our Staff</a>| <a href="../../main/quiz.html">Quiz</a>| <a href="../../main/weeklypoll.html">Weekly Poll</a>| <a href="../../main/contact.html">Contact Us</a>|<a href="../../main/sitemap.html">Site Map</a></p>
+      <p>Copyright &copy Pearson Cake Shop.&nbsp57, Ramakrishna Road, Colombo-06, Sri Lanka.Tel:(+)94 112 580 714,(+)94 112 361 473</p>    
+    </div>
+  </div>
+	</body>
+</html>

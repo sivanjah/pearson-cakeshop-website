@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+ <title>Chocolate Wedding Cake </title>
+  <link rel="shortcut icon" type="image/png" href="../../../images/logo/logo.png">
+  <meta name="description" content="Chocolate Wedding Cake " >
+  <meta name="keywords" content="Chocolate Wedding Cake ,Chocolate Wedding,Chocolate">
+  <link rel="stylesheet" type="text/css" href="../../../css/style.css" />
+  <script src="../../../js/banner.js"></script>  
+</head>
+
+<body>
+  <div id="main">
+      <div id="menubar">
+        <ul id="menu">
+		<img src = "../../../images/logo/logo2.png">
+          <li><a href="../../main/index.html">Home</a></li>
+          <li><a href="../../main/about_us.html">About Us</a></li>
+		  <li><a href="../../main/cake.html">Cakes</a></li>
+          <li><a href="../../main/cv.html">Meet Our Staff</a></li>
+          <li><a href="../../main/quiz.html">Quiz</a></li>
+		  <li><a href="../../main/weeklypoll.html">Weekly Poll</a></li>
+          <li><a href="../../main/contact.html">Contact Us</a></li>
+		</ul>
+         </div>
+    </div>
+	<ul id = "log">
+			<?php
+            session_start();
+			if(!isset($_SESSION['user'])){
+            	$menu =	'<li><a href="http://localhost/pearson/php/register.php">Register</a></li>'.
+					'<li><a href="http://localhost/pearson/php/login.php">Log in</a></li>'.
+					'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}else{
+					$menu =	'<li><a href="http://localhost/pearson/php/logout.php">Logout</a></li>'.
+						'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}
+			echo $menu;
+		?>
+		</ul>
+      </div>
+    </div>	
+	<div id="header">
+	<img src = "../../../images/banner/banner1.png" id="banner">
+	</div>
+	 </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="content">
+		<h1>Chocolate Wedding Cake</h1>
+			<div id = "witem"> 
+			<form action = '../../../php/addToCart.php' method=post>
+				
+				<input type="hidden" name="pname" value="Chocolate Wedding Cake" />
+				<table>
+					<tr>
+						<td> <img src="../../../images/cakes/wedding3.jpg">
+						</td>
+						<td> 
+							<p> With so many different levels of richness and options for flavor pairings, chocolate remains
+								to be one of the most popular wedding cake flavors of the year. What typically is a childhood favourite 
+								can be elevated to a sophisticated level when mixed with flavor accents such as mint, orange and strawberry.
+								Indulge in richness with chocolate fudge, or lighten the flavor by choosing a German chocolate cake.
+							</p>
+						</td>
+					</tr>
+						
+					<tr id = "price">
+						
+						<td>
+								1KG
+								<input type="hidden" name="kg" value="1KG" />
+						</td>
+						
+						<td>
+							Rs.4800.00
+							<input type="hidden" name = "price" value="4800" />
+						</td>
+						
+					</tr>
+						
+					<tr id = "price">
+					<td>
+						Qty<input class="textbox" type="text" name="qty"><br>
+					</td>
+					</tr>
+						
+					<tr>
+					<td>	
+						<input type="submit" value="Add to Cart">
+					</td>
+					</tr>
+						
+					
+				</table>
+				</form>
+			</div>
+	 </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p><a href="../../main/index.html">Home</a>| <a href="../../main/about_us.html">About Us</a>| <a href="../../main/cake.html">Cakes</a>| <a href="../../main/cv.html">Meet Our Staff</a>| <a href="../../main/quiz.html">Quiz</a>| <a href="../../main/weeklypoll.html">Weekly Poll</a>| <a href="../../main/contact.html">Contact Us</a>|<a href="../../main/sitemap.html">Site Map</a></p>
+      <p>Copyright &copy Pearson Cake Shop.&nbsp57, Ramakrishna Road, Colombo-06, Sri Lanka.Tel:(+)94 112 580 714,(+)94 112 361 473</p>    
+    </div>
+  </div>
+	</body>
+</html>

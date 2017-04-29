@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+    <title>Sanoj Perera</title>
+	<link rel="shortcut icon" type="image/png" href="../../images/logo/logo.png">
+	<meta name="description" content="Website for Cake Shop" >
+	<meta name="keywords" content="Pearson CakeShop,CakeShop,Pearson Cake">
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" >
+	<link rel="stylesheet" type="text/css" href="../../css/cv.css" >
+	<script src="../../js/banner.js"></script>  
+</head>
+
+<body>
+ <div id="main">
+      <div id="menubar">
+        <ul id="menu">
+		<img src = "../../images/logo/logo2.png">
+          <li><a href="../main/index.html">Home</a></li>
+          <li><a href="../main/about_us.html">About Us</a></li>
+		  <li><a href="../main/cake.html">Cakes</a></li>
+          <li class="selected"><a href="../main/cv.html">Meet Our Staff</a></li>
+          <li><a href="../main/quiz.html">Quiz</a></li>
+		  <li><a href="../main/quiz.html">Weekly Poll</a></li>
+          <li><a href="../main/contact.html">Contact Us</a></li>
+        </ul>
+		<ul id="log" class = "log">
+			<?php
+            session_start();
+			if(!isset($_SESSION['user'])){
+            	$menu =	'<li><a href="http://localhost/pearson/php/register.php">Register</a></li>'.
+					'<li><a href="http://localhost/pearson/php/login.php">Log in</a></li>'.
+					'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}else{
+					$menu =	'<li><a href="http://localhost/pearson/php/logout.php">Logout</a></li>'.
+						'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}
+			echo $menu;
+		?>
+		</ul>
+      </div>
+	  </div>
+	<div id="header">
+	<img src = "../../images/banner/banner1.png" id="banner">
+	</div>
+	 </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+	<div class="sidebar">
+<img src="../../images/cv_image/sanoj.jpg" alt="Photo of sanoj" id="pic" />
+</div>
+      <div id="content">
+    <div id="page-wrap">
+        <div id="contact-info" class="vcard">
+        
+            <h1 class="fn">Sanoj Perera</h1>
+        
+            <p>
+                Cell: <span class="tel">+94766535252</span><br />
+                Email: <a class="email" href="mailto:sanoj.2015069@iit.ac.lk">sanoj.2015069@iit.ac.lk</a>
+            </p>
+        </div>
+                
+        <div id="objective">
+            <p>
+                I am an outgoing and energetic young professional, seeking a 
+                career that fits my professional skills and personality.  
+                I'll do my best to make my company proud.
+            </p>
+        </div>
+        
+        <div class="clear"></div>
+        
+        <dl>
+            <dd class="clear"></dd>
+            
+            <dt>Education</dt>
+            <dd>
+                <h2>St.Sebastian's College - Moratuwa</h2>
+                <p>I studied from 2002-2015.<br/>I completed my O/L and A/L here.</p>
+            </dd>
+            
+            <dd class="clear"></dd>
+            
+            <dt>Skills</dt>
+            <dd>
+                <h2>Office skills</h2>
+                <p>Software Programming,web engineering,event organization,travel coordination</p>
+                
+                <h2>Computer skills</h2>
+                <p>Java,Microsoft productivity software (Word, Excel, etc)</p>
+            </dd>
+            
+            <dd class="clear"></dd>
+            
+            <dt>Experience</dt>
+            <dd><h2>NO EXPERIENCE AT ALL</h2>
+              
+            </dd>
+            
+            <dd class="clear"></dd>
+            
+            <dt>Hobbies</dt>
+            <dd>Photography , coding , Watching animes and movies</dd>
+            
+            <dd class="clear"></dd>
+            
+            <dt>References</dt>
+            <dd>Available on request</dd>
+            
+            <dd class="clear"></dd>
+        </dl>
+        
+        <div class="clear"></div>
+    
+    </div>
+	</div>
+	</div>
+<div id="content_footer"></div>
+    <div id="footer">
+      <p><a href="index.html">Home</a>| <a href="about_us.html">About Us</a>| <a href="cake.html">Cakes</a>| <a href="cv.html">Meet Our Staff| <a href="quiz.html">Quiz</a>| <a href="contact.html">Contact Us</a>| <a href="../main/sitemap.html">Site map</a></p>
+       <p>Copyright &copy Pearson Cake Shop.&nbsp57, Ramakrishna Road, Colombo-06, Sri Lanka.Tel:(+)94 112 580 714,(+)94 112 361 473</p>
+    </div>
+</body>
+
+</html>

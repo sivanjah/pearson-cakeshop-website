@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Birthday Cake</title>
+  <link rel="shortcut icon" type="image/png" href="../../images/logo/logo.png">
+  <meta name="description" content="Birthday cake category summary" >
+  <meta name="keywords" content="Birthday cake,category,Pearson Cake">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+  <script src="../../js/banner.js"></script>  
+</head>
+
+<body>
+  <div id="main">
+      <div id="menubar">
+        <ul id="menu">
+		<img src = "../../images/logo/logo2.png">
+          <li><a href="../main/index.html">Home</a></li>
+          <li><a href="../main/about_us.html">About Us</a></li>
+		  <li><a href="../main/cake.html">Cakes</a></li>
+          <li><a href="../main/cv.html">Meet Our Staff</a></li>
+          <li><a href="../main/quiz.html">Quiz</a></li>
+		  <li><a href="../main/weeklypoll.html">Weekly Poll</a></li>
+          <li><a href="../main/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+	<ul id = "log">
+			<?php
+            session_start();
+			if(!isset($_SESSION['user'])){
+            	$menu =	'<li><a href="http://localhost/pearson/php/register.php">Register</a></li>'.
+					'<li><a href="http://localhost/pearson/php/login.php">Log in</a></li>'.
+					'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}else{
+					$menu =	'<li><a href="http://localhost/pearson/php/logout.php">Logout</a></li>'.
+						'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}
+			echo $menu;
+		?>
+		</ul>
+      </div>
+    </div>
+	<div id="header">
+	<img src = "../../images/banner/banner1.png" id="banner">
+	</div>
+	 </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="content">
+        <h1>Birthday Cake!</h1>
+			
+			<div id = "cake1">
+			<h4><a href="birthday_cake/butterfly.html">Butterfly Birthday Cake</a></h4>
+				 <a href="birthday_cake/butterfly.html"> <img src="../../images/cakes/bday2.jpg"></a>
+			</div>		
+			
+			<div id = "cake2">
+			<h4><a href="birthday_cake/parcel.html">Sweets Parcel Cake</a></h4>
+						<a href="birthday_cake/parcel.html"> <img src="../../images/cakes/bday3.jpg"> </a>
+			</div>			
+				
+			<div id = "cake3">		
+			<h4><a href="birthday_cake/flower.html">Flower Garland Cake</a></h4>
+					 <a href="birthday_cake/flower.html"> <img src="../../images/cakes/bday4.jpg"> </a>
+			</div>				
+				
+			<div id = "cake4">	
+			<h4><a href="birthday_cake/balloon.html">Balloon Birthday Cake</a></h4>
+				 <a href="birthday_cake/balloon.html"> <img src="../../images/cakes/bday5.jpg"></a>
+			</div>				
+								
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p><a href="../main/index.html">Home</a>| <a href="../main/about_us.html">About Us</a>| <a href="../main/cake.html">Cakes</a>| <a href="../main/cv.html">Meet Our Staff</a>| <a href="../main/quiz.html">Quiz</a>| <a href="../main/weeklypoll.html">Weekly Poll</a>| <a href="../main/contact.html">Contact Us</a>|<a href="../main/sitemap.html">Site Map</a></p>
+      <p>Copyright &copy Pearson Cake Shop.&nbsp57, Ramakrishna Road, Colombo-06, Sri Lanka.Tel:(+)94 112 580 714,(+)94 112 361 473</p>    </div>
+  </div>
+</body>
+</html>

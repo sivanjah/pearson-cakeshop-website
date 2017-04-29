@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Weekly Poll</title>
+  <link rel="shortcut icon" type="image/png" href="../../images/logo/logo.png">
+  <meta name="description" content="Voting for wedsite" >
+  <meta name="keywords" content="voting,poll">
+  <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+  <script src="../../js/banner.js"></script>
+</head>
+
+<body onload = "banner()">
+  <div id="main">
+      <div id="menubar">
+        <ul id="menu">
+		<img src = "../../images/logo/logo2.png">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about_us.html">About Us</a></li>
+		  <li><a href="cake.html">Cakes</a></li>
+          <li><a href="cv.html">Meet Our Staff</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+		  <li class="selected"><a href="weeklypoll.html">Weekly Poll</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+		</div>
+		<div>
+		<ul id = "log">
+			<?php
+            session_start();
+			if(!isset($_SESSION['user'])){
+            	$menu =	'<li><a href="http://localhost/pearson/php/register.php">Register</a></li>'.
+					'<li><a href="http://localhost/pearson/php/login.php">Log in</a></li>'.
+					'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}else{
+					$menu =	'<li><a href="http://localhost/pearson/php/logout.php">Logout</a></li>'.
+						'<li><a href="http://localhost/pearson/php/cart.php">Cart</a></li>';
+			}
+			echo $menu;
+		?>
+		</div>
+		</div>
+	<div id="header">
+	<img src = "../../images/banner/banner1.png" id="banner">
+	</div>
+	 </div>
+ 
+
+	<script>
+	function getVote(int) {
+	if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      document.getElementById("poll").innerHTML=xmlhttp.responseText;
+    }
+  }
+  xmlhttp.open("GET","../../php/poll_vote.php?vote="+int,true);
+  xmlhttp.send();
+}
+</script>
+
+
+   <div id="content_header"></div>
+    <div id="site_content">
+      <div id="content">
+	  <h1>Weekly Poll</h1>
+	  <h2>This is the question for this week!</h2>
+	  <p>Please note that this link will be closed on 30/4/2016 at 12pm<br></br>
+
+<div id="poll">
+<h3>What is the cake category which has highest sales in Pearson CakeShop?</h3>
+<form>
+
+<table style="width:100%">
+    <tr>
+    <td><img src="../../images/cakes/bday2.jpg" alt="cake" style="width:150px;height:180px"><br><br><br><br></td>
+    <td><img src="../../images/cakes/wedding1.jpg" alt="cake"  style="width:150px;height:180px"><br><br><br><br></td>
+    <td><img src="../../images/cakes/cup5.jpg" alt="cake"  style="width:150px;height:180px"><br><br><br><br></td>
+    
+    
+    </tr>
+    <tr>
+    <td><input type="radio" name="vote" value="0" onclick="getVote(this.value)">Birthday Cake</td>
+    <td><input type="radio" name="vote" value="1" onclick="getVote(this.value)">Wedding Cake</td>
+    <td><input type="radio" name="vote" value="2" onclick="getVote(this.value)">Cup Cake</td>
+    </tr>
+	</table>
+	</form>
+	</div>
+
+	</div>
+     </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p><a href="index.html">Home</a>| <a href="about_us.html">About Us</a>| <a href="cake.html">Cakes</a>| <a href="cv.html">Meet Our Staff</a>| <a href="quiz.html">Quiz</a>| <a href="contact.html">Contact Us</a>| <a href="sitemap.html">Site Map</a></p>
+      <p>Copyright &copy Pearson Cake Shop.&nbsp57, Ramakrishna Road, Colombo-06, Sri Lanka.Tel:(+)94 112 580 714,(+)94 112 361 473</p>
+    </div>
+  </div>
+</body>
+</html>
